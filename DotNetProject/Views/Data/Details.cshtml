@@ -1,0 +1,76 @@
+﻿@model DotNetProject.Models.DataModel
+
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>CHi tiết điều khoản</h1>
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Chuong)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Chuong)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NoiDungChuong)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NoiDungChuong)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Muc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Muc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NoiDungMuc)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NoiDungMuc)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Dieu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Dieu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NoiDungDieu)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NoiDungDieu)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Khoan)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Khoan)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NoiDung)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NoiDung)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MucPhatDuoi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MucPhatDuoi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MucPhatTren)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MucPhatTren)
+        </dd>
+    </dl>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>

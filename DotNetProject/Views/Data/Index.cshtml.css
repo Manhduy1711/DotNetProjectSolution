@@ -1,0 +1,116 @@
+﻿button {
+    margin-bottom: 16px;
+}
+
+.fa-eye {
+    width: 16px;
+    height: 16px;
+}
+.NoiDung {
+    width: 300px;
+}
+.width-150 {
+    width: 150px;
+}
+.buttons {
+    display: flex;
+    margin-bottom: 32px;
+}
+span{
+  position: relative;
+  display: inline-flex;
+  width: 120px;
+  height: 44px;
+  margin-right: 10px;
+  perspective: 5000px;
+}
+span a{
+  font-size: 16px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+span.chuong1 a:before,
+span.chuong1 a:after{
+  position: absolute;
+  content: "Chương 1";
+  height: 44px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid black;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+span.chuong2 a:before,
+span.chuong2 a:after{
+    position: absolute;
+    height: 44px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+    box-sizing: border-box;
+    border-radius: 5px;
+    content: "Chương 2";
+}
+span.chuong3 a:before,
+span.chuong3 a:after{
+    position: absolute;
+    height: 44px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+    box-sizing: border-box;
+    border-radius: 5px;
+    content: "Chương 3";
+}
+span.chuong4 a:before,
+span.chuong4 a:after{
+    position: absolute;
+    height: 44px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+    box-sizing: border-box;
+    border-radius: 5px;
+    content: "Chương 4";
+}
+span.createButton a:before,
+span.createButton a:after{
+    position: absolute;
+    height: 44px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 5px solid black;
+    box-sizing: border-box;
+    border-radius: 5px;
+    content: "Tạo mới";
+}
+span a:before{
+  color: #fff;
+  background: #000;
+  transform: rotateY(0deg) translateZ(15px);
+}
+span a:after{
+  color: #000;
+  transform: rotateX(90deg) translateZ(15px);
+}
+span a:hover{
+  transform: translateZ(-15px) rotateX(-90deg);
+}
+span.createButton{
+    margin: 12px 0 20px;
+}
+

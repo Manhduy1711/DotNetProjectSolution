@@ -1,0 +1,150 @@
+﻿@using DotNetProject.Services
+@model IEnumerable<DotNetProject.Models.DataModel>
+
+@{
+    ViewData["Title"] = "Nội dung nghị định";
+    Pager pager = new Pager();
+    int pageNo = 0;
+    if (ViewBag.PagerIndex != null && ViewBag.Action == "Index")
+    {
+        pager = ViewBag.PagerIndex;
+        pageNo = pager.CurrentPage;
+    }
+    if (ViewBag.PagerFilter != null && ViewBag.Action == "Filter")
+    {
+        pager = ViewBag.PagerFilter;
+        pageNo = pager.CurrentPage;
+    }
+}
+
+<h3>QUY ĐỊNH XỬ PHẠT VI PHẠM HÀNH CHÍNH TRONG LĨNH VỰC LÂM NGHIỆP</h3>
+
+<span class="createButton"><a onclick="location.href='@Url.Action("Create", "Data")'"></a></span>
+
+<div class="buttons">
+  <span class="chuong1"><a onclick="location.href='@Url.Action("Filter", "Data",new { chuong = "Chương 1"})'"></a></span>
+  <span class="chuong2"><a onclick="location.href='@Url.Action("Filter", "Data",new { chuong = "Chương 2"})'"></a></span>
+  <span class="chuong3"><a onclick="location.href='@Url.Action("Filter", "Data",new { chuong = "Chương 3"})'"></a></span>
+  <span class="chuong4"><a onclick="location.href='@Url.Action("Filter", "Data",new { chuong = "Chương 4"})'"></a></span>
+</div>
+
+@if(@ViewBag.Parameter == "Chương 1")
+{
+    <h1>Chương I: QUY ĐỊNH CHUNG </h1>
+    <br />
+}
+@if(@ViewBag.Parameter == "Chương 2")
+{
+    <h1>Chương II: HÀNH VI VI PHẠM HÀNH CHÍNH, HÌNH THỨC XỬ PHẠT VÀ BIỆN PHÁP KHẮC PHỤC HẬU QUẢ </h1>
+    <br />
+}
+@if(@ViewBag.Parameter == "Chương 3")
+{
+    <h1>Chương III: THẨM QUYỀN XỬ PHẠT VI PHẠM HÀNH CHÍNH </h1>
+    <br />
+}
+@if(@ViewBag.Parameter == "Chương 4")
+{
+    <h1>Chương IV: ĐIỀU KHOẢN THI HÀNH </h1>
+    <br />
+}
+<table class="table">
+    <thead >
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Muc)
+            </th>
+            <th class="width-150">
+                @Html.DisplayNameFor(model => model.NoiDungMuc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Dieu)
+            </th>
+            <th class="width-150">
+                @Html.DisplayNameFor(model => model.NoiDungDieu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Khoan)
+            </th> 
+            <th class="NoiDung">
+                @Html.DisplayNameFor(model => model.NoiDung)
+            </th>
+            <th class="width-150">
+                @Html.DisplayNameFor(model => model.MucPhatDuoi)
+            </th>
+            <th class="width-150">
+                @Html.DisplayNameFor(model => model.MucPhatTren)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Muc)
+            </td>
+            <td class="width-150">
+                @Html.DisplayFor(modelItem => item.NoiDungMuc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dieu)
+            </td>
+            <td class="width-150">
+                @Html.DisplayFor(modelItem => item.NoiDungDieu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Khoan)
+            </td>
+            <td class="NoiDung">
+                @Html.DisplayFor(modelItem => item.NoiDung)
+            </td>
+            <td class="width-150">
+                @Html.DisplayFor(modelItem => item.MucPhatDuoi)
+            </td>
+            <td class="width-150">
+                @Html.DisplayFor(modelItem => item.MucPhatTren)
+            </td>
+            <td>
+                <button type="button" class="btn btn-primary" onclick="location.href='@Url.Action("Details", "Data", new {id = item.Id })'"><i class="far fa-eye"></i></button>
+                <button type="button" class="btn btn-success" onclick="location.href='@Url.Action("Edit", "Data", new {id = item.Id })'"><i class="fas fa-edit" ></i></button>
+                <button type="button" class="btn btn-danger" onclick="location.href='@Url.Action("Delete", "Data", new {id = item.Id })'"><i class="far fa-trash-alt"></i></button>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<h1>@ViewBag.Parameter</h1>
+<div class="container">
+    @if(pager.TotalPage > 0)
+    {
+        <ul class="pagination justify-content-end">
+            @if(pager.CurrentPage > 1)
+            {
+                <li class="page-item">
+                    <a class="page-link" onclick="location.href='@Url.Action((string)ViewBag.Action, "Data",new { chuong = ViewBag.Parameter, pg="1"})'">First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" onclick="location.href='@Url.Action((string)ViewBag.Action, "Data",new { chuong = ViewBag.Parameter, pg="" + (pager.CurrentPage-1)})'">Previous</a>
+                </li>
+            }
+
+            @for (int pge = pager.StartPage; pge <= pager.EndPage; pge++)
+            {
+                <li class="page-item @(pge == pager.CurrentPage ? "active" : "")">
+                    <a class="page-link" onclick="location.href='@Url.Action((string)ViewBag.Action, "Data",new { chuong = ViewBag.Parameter, pg=""+pge})'">@pge</a>
+                </li>
+            }
+            @if(pager.CurrentPage < pager.TotalPage)
+            {
+                <li class="page-item">
+                    <a class="page-link" onclick="location.href='@Url.Action((string)ViewBag.Action, "Data",new { chuong = ViewBag.Parameter, pg="" + (pager.CurrentPage+1)})'">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" onclick="location.href='@Url.Action((string)ViewBag.Action, "Data",new { chuong = ViewBag.Parameter, pg="" + pager.TotalPage})'">Last</a>
+                </li>
+            }
+
+        </ul>
+    }
+</div>
